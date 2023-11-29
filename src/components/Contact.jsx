@@ -28,12 +28,12 @@ const Contact = () => {
                                         <FaGlobe className='w-4 h-4 mt-1' />
                                         <span>
                                             Connect on Social Media
-                                            <div className='flex items-center gap-8 text-white mt-5'>
+                                            <span className='flex items-center gap-8 text-white mt-5'>
                                                 <a className='duration-300 hover:scale-125' target='_blank' href='https://www.facebook.com/palashnath880'><FaFacebookF className='w-5 h-5' /></a>
                                                 <a className='duration-300 hover:scale-125' target='_blank' href='https://www.linkedin.com/in/palashnath880/'><FaLinkedin className='w-5 h-5' /></a>
                                                 <a className='duration-300 hover:scale-125' target='_blank' href='https://www.instagram.com/palashnath880/'><FaGithub className='w-5 h-5' /></a>
                                                 <a className='duration-300 hover:scale-125' target='_blank' href='https://www.github.com/palashnath880/'><FaInstagram className='w-5 h-5' /></a>
-                                            </div>
+                                            </span>
                                         </span>
                                     </p>
                                 </li>

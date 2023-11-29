@@ -9,7 +9,7 @@ const Hero = () => {
                         <div className='w-1/2'>
                             <div className='flex flex-col gap-8 items-start'>
                                 <p className='text-white text-xl'>Crafting Digital Experiences, One Line of Code at a Time.</p>
-                                <h2 className='text-5xl text-white font-semibold leading-tight'>Hi, I'm Palash, a Passionate <span className='text-gold opacity-90'>Web Developer.</span></h2>
+                                <h2 className='text-5xl text-white font-semibold leading-tight'>Hi, I&apos;m Palash, a Passionate <span className='text-gold opacity-90'>Web Developer.</span></h2>
                                 <button className='text-gold font-medium border border-gold px-7 py-3 hover:bg-gold duration-200 hover:text-white'>Explore My Work</button>
                             </div>
                         </div>
