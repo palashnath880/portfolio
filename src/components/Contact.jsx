@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { FaEnvelope, FaFacebookF, FaGithub, FaGlobe, FaInstagram, FaLinkedin, FaPhone } from 'react-icons/fa6';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
 
@@ -12,6 +13,11 @@ const Contact = () => {
     // send query
     const sendQuery = async (e) => {
         e.preventDefault();
+        const toastId = toast.loading("Sending...", {
+            className: '!bg-secondary !text-sm !text-white !font-light',
+            theme: 'dark'
+        });
+
         try {
             setSubmitting(true);
 
@@ -26,11 +32,17 @@ const Contact = () => {
             if (res.ok) {
                 await res.json();
                 setInputData({ name: '', email: '', subject: '', message: '' });
+                toast.success("Your query sent successfully. I'll contact you soon", {
+                    icon: false,
+                    className: '!bg-secondary !text-sm !text-white !font-light',
+                    theme: 'dark'
+                });
             }
 
         } catch (err) {
             console.error(err);
         } finally {
+            toast.dismiss(toastId); // close pending toast
             setSubmitting(false);
         }
     }
