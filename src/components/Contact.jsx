@@ -38,7 +38,7 @@ const Contact = () => {
     return (
         <section>
             <div className='container mx-auto px-5 py-20'>
-                <h1 className='text-4xl text-center font-bold text-secondary'>Contact</h1>
+                <h1 className='text-4xl max-sm:text-3xl text-center font-bold text-secondary'>Contact</h1>
                 <div className='mt-20 flex max-sm:flex-col max-md:gap-x-5 max-lg:gap-10 gap-20'>
                     <div className='w-full sm:w-1/2'>
                         <div className='flex flex-col items-start w-3/4'>
