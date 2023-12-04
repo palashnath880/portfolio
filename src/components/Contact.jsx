@@ -1,7 +1,40 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { FaEnvelope, FaFacebookF, FaGithub, FaGlobe, FaInstagram, FaLinkedin, FaPhone } from 'react-icons/fa6';
 
 const Contact = () => {
+
+    // states
+    const [inputData, setInputData] = useState({ name: '', email: '', subject: '', message: '' });
+    const [submitting, setSubmitting] = useState(false);
+
+    // send query
+    const sendQuery = async (e) => {
+        e.preventDefault();
+        try {
+            setSubmitting(true);
+
+            const res = await fetch('/api/contact-query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(inputData),
+            });
+
+            if (res.ok) {
+                await res.json();
+                setInputData({ name: '', email: '', subject: '', message: '' });
+            }
+
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setSubmitting(false);
+        }
+    }
+
     return (
         <section>
             <div className='container mx-auto px-5 py-20'>
@@ -44,27 +77,29 @@ const Contact = () => {
                     </div>
                     <div className='w-1/2'>
                         <div className='p'>
-                            <form>
+                            <form onSubmit={sendQuery}>
                                 <div className='flex flex-col gap-6'>
                                     <div className='flex flex-col gap-3'>
-                                        <input placeholder='Name' name='name' type='text' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
+                                        <input onChange={(e) => setInputData({ ...inputData, [e.target.name]: e.target.value })} value={inputData.name} placeholder='Name' name='name' type='text' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
                                     </div>
                                     <div className='flex flex-col gap-3'>
-                                        <input placeholder='Email' name='email' type='email' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
+                                        <input onChange={(e) => setInputData({ ...inputData, [e.target.name]: e.target.value })} value={inputData.email} placeholder='Email' name='email' type='email' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
                                     </div>
                                     <div className='flex flex-col gap-3'>
-                                        <input placeholder='Subject' name='subject' type='text' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
+                                        <input onChange={(e) => setInputData({ ...inputData, [e.target.name]: e.target.value })} value={inputData.subject} placeholder='Subject' name='subject' type='text' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
                                     </div>
                                     <div className='flex flex-col gap-3'>
                                         <textarea
+                                            value={inputData.message}
+                                            onChange={(e) => setInputData({ ...inputData, ['message']: e.target.value })}
                                             placeholder='Message'
                                             className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium h-52 resize-none'
                                         >
                                         </textarea>
                                     </div>
                                     <div>
-                                        <button type='submit' className='rounded-full outline-none px-10 py-3 border-2 border-secondary text-secondary font-medium'>
-                                            Send
+                                        <button disabled={submitting} type='submit' className='rounded-full outline-none px-10 py-3 border-2 border-secondary text-secondary font-medium disabled:opacity-60'>
+                                            {submitting ? 'Sending ...' : 'Send'}
                                         </button>
                                     </div>
                                 </div>
