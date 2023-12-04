@@ -1,4 +1,4 @@
-import Image from 'next/image';
+
 import React from 'react';
 import { FaFacebookF, FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa6';
 

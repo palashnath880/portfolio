@@ -39,8 +39,8 @@ const Contact = () => {
         <section>
             <div className='container mx-auto px-5 py-20'>
                 <h1 className='text-4xl text-center font-bold text-secondary'>Contact</h1>
-                <div className='mt-20 flex gap-20'>
-                    <div className='w-1/2'>
+                <div className='mt-20 flex max-sm:flex-col max-md:gap-x-5 max-lg:gap-10 gap-20'>
+                    <div className='w-full sm:w-1/2'>
                         <div className='flex flex-col items-start w-3/4'>
                             <h4 className='text-xl text-white font-bold'>Get In Touch</h4>
                             <ul className='mt-7 space-y-5'>
@@ -75,7 +75,7 @@ const Contact = () => {
 
                         </div>
                     </div>
-                    <div className='w-1/2'>
+                    <div className='w-full sm:w-1/2'>
                         <div className='p'>
                             <form onSubmit={sendQuery}>
                                 <div className='flex flex-col gap-6'>
