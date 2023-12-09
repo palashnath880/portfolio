@@ -20,24 +20,23 @@ const SkillItem = ({ percent, text, duration }) => {
         let interval;
         let countIndex = 0;
 
-        const countDown = setInterval(() => {
-            countIndex++;
-            setCount(countIndex);
-            if (countIndex === percent) {
-                clearInterval(interval);
-                countIndex = 0;
-            }
-        }, (duration / percent));
-
         let interSection = new IntersectionObserver(entries => {
             entries.forEach(ele => {
 
-                if (ele.isIntersecting && !interval) {
-                    interval = countDown;
+                if (ele.isIntersecting && !countIndex) {
+                    interval = setInterval(() => {
+                        countIndex++;
+                        setCount(countIndex);
+                        if (countIndex === percent) {
+                            clearInterval(interval);
+                            countIndex = 0;
+                        }
+                    }, (duration / percent));
                 } else {
                     interval && clearInterval(interval);
                     countIndex = 0;
                 }
+
             });
         });
 
@@ -78,35 +77,47 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className='mt-16 grid grid-cols-6 gap-5'>
-                    <div>
-                        <SkillItem
-                            percent={50}
-                            text={'Node JS'}
-                            duration={1000}
-                        />
-                    </div>
-                    <div>
-                        <SkillItem
-                            percent={90}
-                            text={'React JS'}
-                            duration={1000}
-                        />
-                    </div>
-                    <div>
-                        <SkillItem
-                            percent={80}
-                            text={'Next JS'}
-                            duration={1000}
-                        />
-                    </div>
-                    <div>
-                        <SkillItem
-                            percent={30}
-                            text={'Tailwind CSS'}
-                            duration={1000}
-                        />
-                    </div>
+                <div className='mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-8 xl:gap-5'>
+                    <SkillItem
+                        percent={90}
+                        text={'React JS'}
+                        duration={1000}
+                    />
+                    <SkillItem
+                        percent={80}
+                        text={'Next JS'}
+                        duration={1000}
+                    />
+                    <SkillItem
+                        percent={80}
+                        text={'Tailwind CSS'}
+                        duration={1000}
+                    />
+                    <SkillItem
+                        percent={70}
+                        text={'MUI'}
+                        duration={1000}
+                    />
+                    <SkillItem
+                        percent={60}
+                        text={'Node JS'}
+                        duration={1000}
+                    />
+                    <SkillItem
+                        percent={80}
+                        text={'Express JS'}
+                        duration={1000}
+                    />
+                    <SkillItem
+                        percent={65}
+                        text={'MySQL'}
+                        duration={1000}
+                    />
+                    <SkillItem
+                        percent={60}
+                        text={'MongoDB'}
+                        duration={1000}
+                    />
                 </div>
             </div>
         </section>
