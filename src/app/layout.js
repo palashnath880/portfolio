@@ -2,7 +2,6 @@ import { Raleway } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Head from 'next/head'
 
 
 const raleway = Raleway({ subsets: ['latin'] })
@@ -32,13 +31,9 @@ export const metadata = {
   openGraph: {
     title: 'Palash Nath | Web Developer',
     description: "Hello, I'm Palash Nath, a passionate web developer with a knack for turning ideas into digital realities. From pixel-perfect design to seamless functionality, I specialize in creating immersive and dynamic web experiences.",
-    url: 'https://palashnath.netlify.app/',
+    url: new URL('https://palashnath.netlify.app/'),
     type: 'website',
-    image: {
-      url: 'https://palashnath.netlify.app/_next/image?url=%2Fimages%2Fpalashnath880.webp&w=640&q=75',
-      width: 1200,
-      height: 900,
-    },
+    images: '/images/palashnath880.webp'
   },
 }
 

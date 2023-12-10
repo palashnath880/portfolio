@@ -1,6 +1,19 @@
 'use client';
 
+import imageOptimizer from '@/imageOptimizer';
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
+
+const SVGImage = ({ logo, transform }) => {
+
+    return <image
+        href={imageOptimizer(`/images/${logo}`)}
+        width="100"
+        height="100"
+        clipPath='url(#circleClip)'
+        transform={transform}
+    />
+}
+
 
 const Hero = () => {
 
@@ -143,14 +156,7 @@ const Hero = () => {
                                     <circle cx="250" cy="250" r="150" fill='none' strokeWidth={2} stroke='url(#grad2)' gradientTransform="rotate(45)" />
 
                                     <g transform='translate(225, 225)'>
-                                        {logosArr.map(({ logo, transform }, index) => <image
-                                            href={`/images/${logo}`}
-                                            width="100"
-                                            height="100"
-                                            clipPath='url(#circleClip)'
-                                            key={index}
-                                            transform={transform}
-                                        />)}
+                                        {logosArr.map((logo, index) => <SVGImage {...logo} key={index} />)}
                                     </g>
 
 
