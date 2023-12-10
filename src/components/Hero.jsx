@@ -2,11 +2,12 @@
 
 import imageOptimizer from '@/imageOptimizer';
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const SVGImage = ({ logo, transform }) => {
 
     return <image
-        href={imageOptimizer(`/images/${logo}`)}
+        href={(`/images/${logo}`)}
         width="100"
         height="100"
         clipPath='url(#circleClip)'
@@ -17,79 +18,41 @@ const SVGImage = ({ logo, transform }) => {
 
 const Hero = () => {
 
-    // 
-    const svgRef = useRef();
-
     // logos array
     const logosArr = [
         {
-            logo: 'node.png',
+            logo: 'node.webp',
             transform: 'translate(0, -200) scale(0.5)',
         },
         {
-            logo: 'mysql.png',
+            logo: 'mysql.webp',
             transform: 'translate(150, -135) scale(0.5)',
         },
         {
-            logo: 'mongodb.png',
+            logo: 'mongodb.webp',
             transform: 'translate(200, 0) scale(0.5)',
         },
         {
-            logo: 'react.png',
+            logo: 'react.webp',
             transform: 'translate(140, 135) scale(0.5)',
         },
         {
-            logo: 'php.png',
+            logo: 'php.webp',
             transform: 'translate(0, 200) scale(0.5)',
         },
         {
-            logo: 'node.png',
+            logo: 'node.webp',
             transform: 'translate(-140, 135) scale(0.5)',
         },
         {
-            logo: 'mongodb.png',
+            logo: 'mongodb.webp',
             transform: 'translate(-200, 0) scale(0.5)',
         },
         {
-            logo: 'mysql.png',
+            logo: 'mysql.webp',
             transform: 'translate(-150, -135) scale(0.5)',
         },
     ];
-
-    useEffect(() => {
-
-        const svg = svgRef.current,
-            svgViewBoxWidth = svg.viewBox.baseVal.width,
-            svgViewBoxHeight = svg.viewBox.baseVal.height,
-            logos = svg.querySelectorAll('g.animate_logo'),
-            initTransformY = 0;
-
-        // set init transform value
-        for (let logo of logos) {
-
-            const logoIndex = parseInt(logo.getAttribute('data-index')),
-                innerImg = logo.querySelector('image'),
-                innerImgWidth = parseInt(innerImg.getAttribute('width'));
-
-            // switch (logoIndex) {
-            //     case 1:
-            //         logo.setAttribute('transform', `translate(${(svgViewBoxWidth / 2) - (innerImgWidth / 2)}, ${initTransformY})`);
-            //         break;
-            //     case 2:
-            //         logo.setAttribute('transform', `translate(${(svgViewBoxWidth / 2) - (innerImgWidth / 2)}, ${initTransformY})`);
-            //         break;
-            //     case 3:
-            //         logo.setAttribute('transform', `translate(${(svgViewBoxWidth / 2) - (innerImgWidth / 2)}, ${(svgViewBoxHeight / 2) - (innerImgWidth / 2)})`);
-            //         break;
-            //     default:
-            //         break;
-            // }
-
-
-        }
-
-
-    }, []);
 
     return (
         <section className='min-h-[95vh]'>
@@ -98,14 +61,14 @@ const Hero = () => {
                     <div className='w-full h-full flex max-md:flex-col-reverse items-center gap-10'>
                         <div className='max-md:w-full w-1/2'>
                             <div className='flex flex-col gap-8 items-start max-sm:items-center'>
-                                <p className='text-white max-sm:text-base text-xl max-md:text-center '>Crafting Digital Experiences, One Line of Code at a Time.</p>
-                                <h2 className='text-5xl max-sm:text-3xl text-white max-md:text-center font-semibold leading-snug'>Hi, I&apos;m Palash, a Passionate <span className='text-gold opacity-90'>Web Developer.</span></h2>
-                                <button className='text-gold font-medium border border-gold px-7 py-3 hover:bg-gold duration-200 hover:text-white'>Explore My Work</button>
+                                <motion.p initial={{ transform: 'translateY(50%)', opacity: 0, }} whileInView={{ opacity: 1, transform: 'translateY(0)' }} className='text-white max-sm:text-base text-xl max-md:text-center '>Crafting Digital Experiences, One Line of Code at a Time.</motion.p>
+                                <motion.h2 initial={{ transform: 'translateY(50%)', opacity: 0, }} whileInView={{ opacity: 1, transform: 'translateY(0)' }} transition={{ delay: 0.3 }} className='text-5xl max-sm:text-3xl text-white max-md:text-center font-semibold leading-snug'>Hi, I&apos;m Palash, a Passionate <span className='text-gold opacity-90'>Web Developer.</span></motion.h2>
+                                <motion.button initial={{ transform: 'translateY(50%)', opacity: 0, }} whileInView={{ opacity: 1, transform: 'translateY(0)' }} transition={{ delay: 0.5 }} className='text-gold font-medium border border-gold px-7 py-3 hover:bg-gold duration-200 hover:text-white'>Explore My Work</motion.button>
                             </div>
                         </div>
-                        <div className='w-full md:w-1/2'>
+                        <motion.div initial={{ opacity: 0, }} whileInView={{ opacity: 1 }} className='w-full md:w-1/2'>
                             <div className='max-md:scale-110'>
-                                <svg className='w-full h-auto' viewBox='0 0 500 500' ref={svgRef}>
+                                <svg className='w-full h-auto' viewBox='0 0 500 500'>
 
                                     {/* circle clip path */}
                                     <defs>
@@ -175,7 +138,7 @@ const Hero = () => {
                                     {/* <image preserveAspectRatio='xMidYMid meet' href="/images/palashnath880.webp" x="50" y="50" width="100" height="100" clip-path="url(#middleImage)" /> */}
                                 </svg>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>

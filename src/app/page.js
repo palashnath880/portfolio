@@ -12,11 +12,17 @@ export default function Home() {
     return <>
         <Suspense>
             <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Contact />
-            <ToastContainer />
         </Suspense>
+        <Suspense>
+            <About />
+        </Suspense>
+        <Skills />
+        <Suspense>
+            <Projects />
+        </Suspense>
+        <Suspense>
+            <Contact />
+        </Suspense>
+        <ToastContainer />
     </>
 }

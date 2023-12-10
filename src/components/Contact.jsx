@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaFacebookF, FaGithub, FaGlobe, FaInstagram, FaLinkedin, FaPhone } from 'react-icons/fa6';
 import { toast } from 'react-toastify';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
 
@@ -10,9 +11,16 @@ const Contact = () => {
     const [inputData, setInputData] = useState({ name: '', email: '', subject: '', message: '' });
     const [submitting, setSubmitting] = useState(false);
 
+    // framer motion animation
+    const animate = {
+        initial: { opacity: 0, transform: 'translateY(50%)' },
+        whileInView: { opacity: 1, transform: 'translateY(0%)' },
+    };
+
     // send query
     const sendQuery = async (e) => {
         e.preventDefault();
+
         const toastId = toast.loading("Sending...", {
             className: '!bg-secondary !text-sm !text-white !font-light',
             theme: 'dark'
@@ -91,16 +99,16 @@ const Contact = () => {
                         <div className='p'>
                             <form onSubmit={sendQuery}>
                                 <div className='flex flex-col gap-6'>
-                                    <div className='flex flex-col gap-3'>
+                                    <motion.div {...animate} className='flex flex-col gap-3'>
                                         <input onChange={(e) => setInputData({ ...inputData, [e.target.name]: e.target.value })} value={inputData.name} placeholder='Name' name='name' type='text' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
-                                    </div>
-                                    <div className='flex flex-col gap-3'>
+                                    </motion.div>
+                                    <motion.div {...animate} transition={{ delay: 0.2 }} className='flex flex-col gap-3'>
                                         <input onChange={(e) => setInputData({ ...inputData, [e.target.name]: e.target.value })} value={inputData.email} placeholder='Email' name='email' type='email' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
-                                    </div>
-                                    <div className='flex flex-col gap-3'>
+                                    </motion.div>
+                                    <motion.div {...animate} transition={{ delay: 0.3 }} className='flex flex-col gap-3'>
                                         <input onChange={(e) => setInputData({ ...inputData, [e.target.name]: e.target.value })} value={inputData.subject} placeholder='Subject' name='subject' type='text' className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium' />
-                                    </div>
-                                    <div className='flex flex-col gap-3'>
+                                    </motion.div>
+                                    <motion.div {...animate} transition={{ delay: 0.4 }} className='flex flex-col gap-3'>
                                         <textarea
                                             value={inputData.message}
                                             onChange={(e) => setInputData({ ...inputData, ['message']: e.target.value })}
@@ -108,12 +116,12 @@ const Contact = () => {
                                             className='bg-transparent border-secondary border-2 outline-none rounded-lg px-4 py-3 text-white font-medium h-52 resize-none'
                                         >
                                         </textarea>
-                                    </div>
-                                    <div>
+                                    </motion.div>
+                                    <motion.div {...animate} transition={{ delay: 0.5 }} >
                                         <button disabled={submitting} type='submit' className='rounded-full outline-none px-10 py-3 border-2 border-secondary text-secondary font-medium disabled:opacity-60'>
                                             {submitting ? 'Sending ...' : 'Send'}
                                         </button>
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </form>
                         </div>

@@ -6,18 +6,18 @@ const Projects = () => {
 
     const top3Project = [
         {
-            title: 'Medicare',
+            title: 'Furniture',
             desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-            live_link: '',
-            code_link: '',
+            live_link: 'https://furniture.palashnath880.vercel.app/',
+            code_link: 'https://github.com/palashnath880/furniture',
             image: `/images/projects/project-1.webp`,
         },
         {
             title: 'Medicare',
             desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-            live_link: '',
-            code_link: '',
-            image: `/images/projects/project-1.webp`,
+            live_link: 'https://medicare.palashnath880.vercel.app/',
+            code_link: 'https://github.com/palashnath880/medicare',
+            image: `/images/projects/project-2.webp`,
         },
         {
             title: 'Medicare',
@@ -36,7 +36,7 @@ const Projects = () => {
                     {top3Project.map(({ content, image, title, desc, code_link, live_link }, index) => <div key={index} className=' duration-300 group cursor-pointer shadow-[0px_0px_40px_0px_#ffffff20] hover:shadow-[0px_0px_40px_0px_#ffffff50]'>
                         <div className='aspect-square w-full relative'>
                             <div className='overflow-hidden w-full h-full'>
-                                <Image src={image} width={500} height={380} alt={title} className='w-full h-full object-cover' />
+                                <Image src={image} width={400} height={400} alt={title} className='w-full h-full object-cover' />
                             </div>
                             <div className='absolute top-0 left-0 w-full h-full px-5 py-5 grid place-items-center bg-black bg-opacity-60 opacity-0 duration-300 group-hover:opacity-100'>
                                 <div className='flex flex-col items-center gap-3'>
