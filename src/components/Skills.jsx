@@ -30,7 +30,7 @@ const Skills = () => {
     ];
 
     return (
-        <section>
+        <section id='expertise'>
             <div className='container mx-auto px-5 max-md:pb-0 py-20'>
                 <h1 className='text-4xl max-sm:text-3xl text-center font-semibold text-secondary'>Skills and Expertise</h1>
                 <div className='max-sm:mt-10 mt-20 grid max-lg:grid-cols-1 grid-cols-2 max-xl:gap-x-6 gap-10'>

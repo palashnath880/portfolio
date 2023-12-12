@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { IoMdHome } from "react-icons/io";
 import { FaBriefcase, FaUser, FaStar } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
+import Link from 'next/link';
 
 
 const Path = props => (
@@ -121,10 +122,12 @@ const Header = () => {
                             key={index}
                             transition={{ duration: 0.2, delay: (0.4 + (index / 10)) }}
                             id={id}
-                            className='flex items-center py-1.5 px-3 cursor-pointer gap-5 text-secondary rounded-md border border-secondary hover:bg-secondary hover:text-white duration-300'
+                            onClick={() => setIsOpen(false)}
                         >
-                            {icon}
-                            <span className='font-semibold'>{label}</span>
+                            <Link href={id} className='flex items-center py-1.5 px-3 cursor-pointer gap-5 text-secondary rounded-md border border-secondary hover:bg-secondary hover:text-white duration-300'>
+                                {icon}
+                                <span className='font-semibold'>{label}</span>
+                            </Link>
                         </motion.li>)}
                     </ul>
                 </motion.div>

@@ -29,7 +29,7 @@ const Projects = () => {
     ];
 
     return (
-        <section>
+        <section id='project'>
             <div className='container mx-auto px-5 max-md:pb-0 pt-20 pb-14'>
                 <h1 className='text-4xl max-sm:text-3xl text-center font-semibold text-secondary'>Projects</h1>
                 <div className='max-sm:mt-10 mt-20 grid max-sm:grid-cols-1 max-lg:grid-cols-2 grid-cols-3 max-xl:gap-x-6 gap-10'>

@@ -1,6 +1,5 @@
 'use client';
 
-import imageOptimizer from '@/imageOptimizer';
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
@@ -55,7 +54,7 @@ const Hero = () => {
     ];
 
     return (
-        <section className='min-h-[95vh]'>
+        <section className='min-h-[95vh]' id="home">
             <div className='w-full h-full py-20' style={{ backgroundImage: `linear-gradient(#00000085,#00000085), url(/images/next-coding.webp)` }}>
                 <div className='container mx-auto px-5 w-full h-full'>
                     <div className='w-full h-full flex max-md:flex-col-reverse items-center gap-10'>

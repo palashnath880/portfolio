@@ -67,7 +67,7 @@ const About = () => {
     };
 
     return (
-        <section>
+        <section id="about">
             <div className='container mx-auto px-5 max-md:pb-0 py-20'>
                 <div className='flex items-center max-md:flex-col-reverse max-md:gap-10 gap-20'>
                     <div className='max-md:w-full w-1/2'>
