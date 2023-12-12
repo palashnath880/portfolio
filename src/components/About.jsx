@@ -74,10 +74,10 @@ const About = () => {
                         <div className='flex flex-col gap-5 items-start'>
                             <motion.h1 {...animate} className='text-4xl max-sm:text-3xl font-semibold text-gold leading-snug'>Welcome to Palash&apos;s <span className='text-secondary'>Web Development</span> World!</motion.h1>
                             <motion.p {...animate} transition={{ delay: 0.2 }} className='text-base text-gold'>Hello, I&apos;m Palash Nath, a passionate web developer with a knack for turning ideas into digital realities. From pixel-perfect design to seamless functionality, I specialize in creating immersive and dynamic web experiences.</motion.p>
-                            <motion.button {...animate} transition={{ delay: 0.3 }} className='text-gold font-medium border border-gold px-7 py-3 hover:bg-gold duration-200 hover:text-white flex items-center gap-3'>
+                            <motion.a href='https://docs.google.com/document/d/11uC7iIiUfbnw9yN10zPKJAZR7EKT_FkPif2pi39XX8I/edit?usp=sharing' target='_blank' {...animate} transition={{ delay: 0.3 }} className='text-gold font-medium border border-gold px-7 py-3 hover:bg-gold duration-200 hover:text-white flex items-center gap-3'>
                                 <span>Download Resume</span>
                                 <FaDownload className='w-5 h-5' />
-                            </motion.button>
+                            </motion.a>
                         </div>
                     </div>
                     <div className='max-md:w-full w-1/2'>

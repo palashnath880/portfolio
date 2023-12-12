@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
 import { FaArrowRightLong, FaGithub, FaLink } from 'react-icons/fa6';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
 
@@ -28,12 +31,17 @@ const Projects = () => {
         },
     ];
 
+    const animateObj = {
+        initial: { opacity: 0, transform: 'translateY(20%)' },
+        whileInView: { opacity: 1, transform: 'translateY(0%)' },
+    };
+
     return (
         <section id='project'>
             <div className='container mx-auto px-5 max-md:pb-0 pt-20 pb-14'>
                 <h1 className='text-4xl max-sm:text-3xl text-center font-semibold text-secondary'>Projects</h1>
                 <div className='max-sm:mt-10 mt-20 grid max-sm:grid-cols-1 max-lg:grid-cols-2 grid-cols-3 max-xl:gap-x-6 gap-10'>
-                    {top3Project.map(({ content, image, title, desc, code_link, live_link }, index) => <div key={index} className=' duration-300 group cursor-pointer shadow-[0px_0px_40px_0px_#ffffff20] hover:shadow-[0px_0px_40px_0px_#ffffff50]'>
+                    {top3Project.map(({ content, image, title, desc, code_link, live_link }, index) => <motion.div {...animateObj} key={index} transition={{ delay: ((index / 30) + 0.3) }} className=' duration-300 group cursor-pointer shadow-[0px_0px_40px_0px_#ffffff20] hover:shadow-[0px_0px_40px_0px_#ffffff50]'>
                         <div className='aspect-square w-full relative'>
                             <div className='overflow-hidden w-full h-full'>
                                 <Image src={image} width={400} height={400} alt={title} className='w-full h-full object-cover' />
@@ -50,7 +58,7 @@ const Projects = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>)}
+                    </motion.div>)}
                 </div>
                 <button className='flex items-center gap-2 hover:gap-3 duration-200 px-6 py-3 text-white font-medium text-sm border border-secondary mx-auto mt-16'>
                     All Project

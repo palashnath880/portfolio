@@ -62,7 +62,7 @@ const Hero = () => {
                             <div className='flex flex-col gap-8 items-start max-sm:items-center'>
                                 <motion.p initial={{ transform: 'translateY(50%)', opacity: 0, }} whileInView={{ opacity: 1, transform: 'translateY(0)' }} className='text-white max-sm:text-base text-xl max-md:text-center '>Crafting Digital Experiences, One Line of Code at a Time.</motion.p>
                                 <motion.h2 initial={{ transform: 'translateY(50%)', opacity: 0, }} whileInView={{ opacity: 1, transform: 'translateY(0)' }} transition={{ delay: 0.3 }} className='text-5xl max-sm:text-3xl text-white max-md:text-center font-semibold leading-snug'>Hi, I&apos;m Palash, a Passionate <span className='text-gold opacity-90'>Web Developer.</span></motion.h2>
-                                <motion.button initial={{ transform: 'translateY(50%)', opacity: 0, }} whileInView={{ opacity: 1, transform: 'translateY(0)' }} transition={{ delay: 0.5 }} className='text-gold font-medium border border-gold px-7 py-3 hover:bg-gold duration-200 hover:text-white'>Explore My Work</motion.button>
+                                <motion.a href='#project' initial={{ transform: 'translateY(50%)', opacity: 0, }} whileInView={{ opacity: 1, transform: 'translateY(0)' }} transition={{ delay: 0.5 }} className='text-gold font-medium border border-gold px-7 py-3 hover:bg-gold duration-200 hover:text-white'>Explore My Work</motion.a>
                             </div>
                         </div>
                         <motion.div initial={{ opacity: 0, }} whileInView={{ opacity: 1 }} className='w-full md:w-1/2'>
