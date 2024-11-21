@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { IoMdHome } from "react-icons/io";
 import { FaBriefcase, FaUser, FaStar } from "react-icons/fa6";
@@ -21,6 +21,7 @@ const Path = (props) => (
 const Header = () => {
   // states
   const [isOpen, setIsOpen] = useState(false);
+  const headerRef = useRef();
 
   // animation for button
   const buttonVariants = {
@@ -82,14 +83,31 @@ const Header = () => {
     },
   ];
 
+  useEffect(() => {
+    const header: any = headerRef.current;
+    const afterLoad = () => {
+      if (header) {
+        setTimeout(() => header.classList.remove("hidden"), 500);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      afterLoad();
+    } else {
+      window.addEventListener("load", afterLoad);
+    }
+
+    return () => window.removeEventListener("load", afterLoad);
+  }, []);
+
   return (
-    <header className="z-[10000]">
+    <header ref={headerRef} className="z-[10000] hidden">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         variants={buttonVariants}
         animate={isOpen ? "open" : "closed"}
         transition={{ duration: 0.3 }}
-        className="w-[48px] aspect-square rounded-full bg-white fixed grid place-items-center z-[100000]"
+        className="w-[48px] aspect-square rounded-full bg-secondary fixed grid place-items-center z-[100000]"
       >
         <svg width="23" height="23" viewBox="0 0 23 23">
           <Path
@@ -97,6 +115,7 @@ const Header = () => {
               closed: { d: "M 2 2.5 L 20 2.5" },
               open: { d: "M 3 16.5 L 17 2.5" },
             }}
+            transition={{ duration: 0.1 }}
           />
           <Path
             d="M 2 9.423 L 20 9.423"
@@ -111,6 +130,7 @@ const Header = () => {
               closed: { d: "M 2 16.346 L 20 16.346" },
               open: { d: "M 3 2.5 L 17 16.346" },
             }}
+            transition={{ duration: 0.1 }}
           />
         </svg>
       </motion.button>
@@ -120,7 +140,7 @@ const Header = () => {
         animate={isOpen ? "open" : "closed"}
         variants={variants}
         transition={{ duration: 0.2 }}
-        className="bg-white fixed z-[10000]"
+        className="bg-secondary fixed z-[10000]"
       >
         <motion.div>
           <ul className="mt-36 px-4 space-y-5 w-full">
@@ -153,7 +173,7 @@ const Header = () => {
               >
                 <Link
                   href={id}
-                  className="flex items-center py-1.5 px-3 cursor-pointer gap-5 text-secondary rounded-md border border-secondary hover:bg-secondary hover:text-white duration-300"
+                  className="flex items-center py-1.5 px-3 cursor-pointer gap-5 text-primary rounded-md border border-primary hover:bg-primary hover:text-secondary duration-300"
                 >
                   {icon}
                   <span className="font-semibold">{label}</span>
