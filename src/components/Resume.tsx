@@ -11,13 +11,11 @@ export default function Resume() {
         <SectionHead title="Resume" subtitle="A Snapshot of My Journey" />
 
         {/* render resume */}
-        {/* <PDFViewer>
-          <Document>
-            <Page size="A4">
-              <Text>Hello World</Text>
-            </Page>
-          </Document>
-        </PDFViewer> */}
+        {/* <Document>
+          <Page size="A4">
+            <Text>Hello World</Text>
+          </Page>
+        </Document> */}
       </div>
     </section>
   );

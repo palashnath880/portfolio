@@ -4,10 +4,10 @@ const Contact = dynamic(() => import("../components/Contact"));
 const Hero = dynamic(() => import("../components/Hero"));
 const Projects = dynamic(() => import("../components/Projects"));
 const Skills = dynamic(() => import("../components/Skills"));
+const Resume = dynamic(() => import("../components/Resume"), { ssr: false });
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Resume from "../components/Resume";
 
 export default function Home() {
   return (

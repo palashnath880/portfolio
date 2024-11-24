@@ -51,8 +51,8 @@ const Hero = () => {
             <div className="w-full lg:w-1/2 px-5 py-5 mobile_clip max-lg:bg-primary max-lg:bg-opacity-85 max-sm:pt-[25%] max-lg:pt-[15%] max-lg:absolute max-lg:bottom-0 max-lg:left-0">
               <div className="flex flex-col ">
                 <p className="font-medium text-lg max-lg:text-secondary">Hi,</p>
-                <div className="flex flex-col my-6">
-                  <h1 className="text-primary text-4xl font-bold max-lg:text-secondary">
+                <div className="flex flex-col gap-1 my-6">
+                  <h1 className="text-primary max-sm:text-4xl text-5xl font-bold max-lg:text-secondary">
                     Palash Nath
                   </h1>
                   <p className="text-primary max-lg:text-secondary text-base">
@@ -68,7 +68,12 @@ const Hero = () => {
                       <link.Icon className="w-6 h-6" />
                     </a>
                   ))}
-                  <a className="text-secondary max-sm:hidden bg-[#25D366] rounded-full py-2 px-3 flex items-center gap-2 cursor-pointer ml-2">
+                  <a
+                    className="text-secondary max-sm:hidden bg-[#25D366] rounded-full py-2 px-3 flex items-center gap-2 cursor-pointer ml-2"
+                    href={`https://wa.me/+8801304780828?text=${encodeURIComponent(
+                      "Hello Palash!"
+                    )}`}
+                  >
                     <FaWhatsapp className="w-6 h-6" />
                     <span className="text-sm font-medium">
                       Connect on Whatsapp
