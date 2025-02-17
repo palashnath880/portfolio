@@ -73,6 +73,7 @@ const Hero = () => {
                     href={`https://wa.me/+8801304780828?text=${encodeURIComponent(
                       "Hello Palash!"
                     )}`}
+                    target="_blank"
                   >
                     <FaWhatsapp className="w-6 h-6" />
                     <span className="text-sm font-medium">
