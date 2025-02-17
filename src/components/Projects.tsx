@@ -1,21 +1,48 @@
 import Image from "next/image";
 import React from "react";
-import { FaArrowRightLong, FaGithub, FaLink } from "react-icons/fa6";
+import { FaArrowRightLong, FaGithub, FaLink, FaRegEye } from "react-icons/fa6";
 import SectionHead from "./SectionHead";
 import Link from "next/link";
 import Masonry from "./Masonry";
 
-const MasonryItem = ({ src }: { src: string }) => {
+const MasonryItem = ({
+  src,
+  title,
+  github,
+  link,
+}: {
+  src: string;
+  title: string;
+  github: string;
+  link: string;
+}) => {
   return (
-    <div className="w-full h-auto overflow-hidden break-inside-avoid shadow-md">
+    <div className="w-full h-auto overflow-hidden break-inside-avoid shadow-md relative group">
       <Image
         draggable={false}
         src={src}
         width={400}
         height={400}
         alt={src}
-        className="w-full h-auto object-cover "
+        className="w-full h-auto object-cover"
       />
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-35 grid place-items-center opacity-0 group-hover:opacity-100 transition-all">
+        <div className="flex flex-col">
+          <h1 className="text-3xl text-[#fff]">{title}</h1>
+          <div className="flex gap-3 items-center mt-3">
+            <a href={link} className="rounded-full" target="_blank">
+              <button className="border-2 w-10 h-10 grid place-items-center rounded-full group hover:bg-black hover:border-black transition-all">
+                <FaRegEye className="w-5 h-5 text-white" />
+              </button>
+            </a>
+            <a href={github} className="rounded-full" target="_blank">
+              <button className="border-2 w-10 h-10 grid place-items-center rounded-full group hover:bg-black hover:border-black transition-all">
+                <FaGithub className="w-5 h-5 text-white" />
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -27,90 +54,26 @@ const Projects = () => {
       desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
       live_link: "https://furniture.palashnath880.vercel.app/",
       code_link: "https://github.com/palashnath880/furniture",
-      image: `/images/palashnath880.webp`,
+      image: `/images/furniture-short.png`,
+      full_image: `/images/furniture.png`,
     },
     {
       title: "Medicare",
       desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
       live_link: "https://medicare.palashnath880.vercel.app/",
       code_link: "https://github.com/palashnath880/medicare",
-      image: `/images/projects/project-2.webp`,
+      image: `/images/medicare-short.png`,
+      full_image: `/images/medicare.png`,
     },
     {
-      title: "Medicare",
+      title: "Aspire",
       desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "",
-      code_link: "",
-      image: `/images/palashnath880.webp`,
-    },
-    {
-      title: "Furniture",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "https://furniture.palashnath880.vercel.app/",
-      code_link: "https://github.com/palashnath880/furniture",
-      image: `/images/projects/project-1.webp`,
-    },
-    {
-      title: "Medicare",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "https://medicare.palashnath880.vercel.app/",
-      code_link: "https://github.com/palashnath880/medicare",
-      image: `/images/palashnath880.webp`,
-    },
-    {
-      title: "Medicare",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "",
-      code_link: "",
-      image: `/images/projects/project-1.webp`,
-    },
-    {
-      title: "Furniture",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "https://furniture.palashnath880.vercel.app/",
-      code_link: "https://github.com/palashnath880/furniture",
-      image: `/images/projects/project-1.webp`,
-    },
-    {
-      title: "Medicare",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "https://medicare.palashnath880.vercel.app/",
-      code_link: "https://github.com/palashnath880/medicare",
-      image: `/images/projects/project-2.webp`,
-    },
-    {
-      title: "Medicare",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "",
-      code_link: "",
-      image: `/images/projects/project-1.webp`,
-    },
-    {
-      title: "Furniture",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "https://furniture.palashnath880.vercel.app/",
-      code_link: "https://github.com/palashnath880/furniture",
-      image: `/images/projects/project-1.webp`,
-    },
-    {
-      title: "Medicare",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "https://medicare.palashnath880.vercel.app/",
-      code_link: "https://github.com/palashnath880/medicare",
-      image: `/images/projects/project-2.webp`,
-    },
-    {
-      title: "Medicare",
-      desc: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.`,
-      live_link: "",
-      code_link: "",
-      image: `/images/palashnath880.webp`,
+      live_link: "https://aspire-palashnath.vercel.app/",
+      code_link: "https://github.com/palashnath880/aspire",
+      image: `/images/aspire-short.png`,
+      full_image: `/images/aspire.png`,
     },
   ];
-  const animateObj = {
-    initial: { opacity: 0, transform: "translateY(20%)" },
-    whileInView: { opacity: 1, transform: "translateY(0%)" },
-  };
 
   return (
     <section id="project">
@@ -126,7 +89,14 @@ const Projects = () => {
             gap={16}
             columnCount={3}
             items={top3Project}
-            renderItem={(item: any) => <MasonryItem src={item.image || ""} />}
+            renderItem={(item: any) => (
+              <MasonryItem
+                src={item.image || ""}
+                title={item.title}
+                github={item.code_link}
+                link={item.live_link}
+              />
+            )}
           />
         </div>
 

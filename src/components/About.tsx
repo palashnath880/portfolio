@@ -25,7 +25,7 @@ const About = () => {
               immersive and dynamic web experiences.
             </p>
             <a
-              href="https://docs.google.com/document/d/11uC7iIiUfbnw9yN10zPKJAZR7EKT_FkPif2pi39XX8I/edit?usp=sharing"
+              href="https://drive.google.com/file/d/1czP5xhlQSjDV8YeCGqxWfrm0TcqV-Ra1/view?usp=sharing"
               target="_blank"
               className="px-7 py-2.5 rounded-full bg-secondary text-sm mt-4 w-max cursor-pointer flex items-center gap-3"
             >
